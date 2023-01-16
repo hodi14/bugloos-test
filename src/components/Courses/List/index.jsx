@@ -7,7 +7,7 @@ const CoursesList = () => {
   return (
     <Grid container spacing={2}>
       {coursesData.map((item) => (
-        <Grid item xxs={12} xs={6} key={item.id}>
+        <Grid item xs={12} sm={6} key={item.id}>
           <CourseItem item={item} />
         </Grid>
       ))}

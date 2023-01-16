@@ -42,7 +42,7 @@ const CourseItem = ({ item }) => {
       <CardContent>
         <Typography>{item.title}</Typography>
 
-        <Grid container alignItems="center" justifyContents="space-between">
+        <Grid container alignItems="center" justifyContent="space-between">
           <Typography>
             {hours > 0 ? `${hours} : ` : null}
             {minutes}
