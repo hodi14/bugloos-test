@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  * {
+    box-sizing: border-box;
+  }
 }
 
 code {
@@ -17,14 +21,12 @@ a {
 }
 
 .App {
-  padding-top: 6rem;
-
   .pageContent {
-    max-width: 36rem;
+    max-width: 768px;
     margin: 0 auto;
     padding: 0.5rem 0;
 
-    @media (max-width: 36rem) {
+    @media (max-width: 768px) {
       padding: 0.5rem;
     }
   }
