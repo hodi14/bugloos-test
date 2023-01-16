@@ -18,6 +18,14 @@ a {
 
 .App {
   padding-top: 6rem;
-  max-width: 36rem;
-  margin: 0 auto;
+
+  .pageContent {
+    max-width: 36rem;
+    margin: 0 auto;
+    padding: 0.5rem 0;
+
+    @media (max-width: 36rem) {
+      padding: 0.5rem;
+    }
+  }
 }
