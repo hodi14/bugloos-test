@@ -1,17 +1,21 @@
 import { makeStyles } from "@mui/styles";
 
-import background from "../../assets/images/background.png";
+import background from "../../assets/images/headerBackground.svg";
 
 const useStyles = makeStyles((theme) => ({
   header: {
     backgroundColor: theme.palette.primary.light,
     backgroundImage: `url(${background})`,
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "100% 100%",
-    backgroundSize: "50%",
+    backgroundPosition: "min(768px, 100%) 100%",
+    backgroundSize: "30%",
     height: "50vh",
     padding: "3rem 0.5rem",
     minHeight: "30rem",
+
+    [theme.breakpoints.down("md")]: {
+      backgroundSize: "50%",
+    },
 
     [theme.breakpoints.down("sm")]: {
       backgroundSize: "contain",
