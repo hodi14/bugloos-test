@@ -26,10 +26,11 @@ const calculateTime = (minutes) => {
   };
 };
 
-const CourseItem = ({ item }) => {
+const CourseItem = ({ item, onClick, owned }) => {
   const styles = useStyles({ rating: item?.rating });
 
   const { hours, minutes } = calculateTime(item?.time);
+  const isLoggedIn = localStorage.getItem("user");
 
   return (
     <Card className={styles.courseItem}>
@@ -38,9 +39,13 @@ const CourseItem = ({ item }) => {
       <CardActions>
         <Typography>{item.teacher}</Typography>
 
-        <Button variant="contained" color="secondary">
-          {item.price ? "Purchase" : "Add"}
-        </Button>
+        {owned ? (
+          <Typography> Owned </Typography>
+        ) : (
+          <Button variant="contained" color="secondary" onClick={onClick}>
+            {item.price ? "Purchase" : "Add"}
+          </Button>
+        )}
       </CardActions>
 
       <CardContent>

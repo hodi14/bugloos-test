@@ -17,11 +17,10 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiCardMedia-root": {
       backgroundColor: "#eee",
       borderRadius: "1rem",
-
       height: "calc(50vw - 4rem)",
       maxHeight: "14rem",
 
-      [theme.breakpoints.down("xs")]: {
+      [theme.breakpoints.down("sm")]: {
         height: "calc(100vw - 2rem)",
       },
     },
@@ -34,10 +33,11 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiCardContent-root": {
       padding: "0 0 0.5rem !important",
 
-      "& .MuiGrid-root": {
+      "& > .MuiGrid-root": {
         padding: "0.5rem 0",
         "& *": {
           color: theme.palette.secondary.main,
+          fontWeight: "bold",
         },
       },
     },
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   courseInfoBackground: {
     borderRadius: "1rem",
     backgroundColor: theme.palette.secondary.main,
-    padding: "1rem 0.5rem",
+    padding: "1rem 0.5rem !important",
 
     "& *": {
       color: "#fff !important",
