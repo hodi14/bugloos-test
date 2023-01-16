@@ -1,5 +1,7 @@
+import { Box } from "@mui/material";
+
 const HomePage = () => {
-  return null;
+  return <Box>home</Box>;
 };
 
 export default HomePage;
