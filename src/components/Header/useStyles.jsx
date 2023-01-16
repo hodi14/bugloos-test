@@ -16,7 +16,14 @@ const useStyles = makeStyles((theme) => ({
     padding: "0.25rem",
 
     "& > a": {
+      display: "flex",
+      alignItems: "center",
       color: "#fff",
+
+      "& .MuiSvgIcon-root": {
+        fontSize: "1.25rem",
+        marginRight: "0.25rem",
+      },
     },
   },
 
