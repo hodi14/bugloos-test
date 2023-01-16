@@ -1,0 +1,26 @@
+[
+  {
+    "id": "nfy8c73",
+    "firstName": "Alex",
+    "lastName": "Jones",
+    "email": "alex-jones@gmail.com",
+    "birthdate": "23-07-1990",
+    "password": "PassWord@78"
+  },
+  {
+    "id": "nexy843",
+    "firstName": "Meana",
+    "lastName": "Sunderland",
+    "email": "sunderland.m@gmail.com",
+    "birthdate": "02-10-1997",
+    "password": "12secuR!ty34"
+  },
+  {
+    "id": "90itmfe9",
+    "firstName": "John",
+    "lastName": "Smith",
+    "email": "smith-work@gmail.com",
+    "birthdate": "12-03-2002",
+    "password": "sm!TH-2002"
+  }
+]
