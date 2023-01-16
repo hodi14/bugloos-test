@@ -26,18 +26,37 @@ const useStyles = makeStyles((theme) => ({
       },
     },
 
+    "& .MuiCardActions-root": {
+      justifyContent: "space-between",
+      padding: "0.5rem 0",
+    },
+
     "& .MuiCardContent-root": {
-      padding: "0.5rem 0 !important",
+      padding: "0 0 0.5rem !important",
+
+      "& .MuiGrid-root": {
+        padding: "0.5rem 0",
+        "& *": {
+          color: theme.palette.secondary.main,
+        },
+      },
     },
   },
 
   courseInfoBackground: {
     borderRadius: "1rem",
     backgroundColor: theme.palette.secondary.main,
-    padding: "0.5rem",
+    padding: "1rem 0.5rem",
 
     "& *": {
       color: "#fff !important",
+    },
+
+    "& .MuiGrid-root": {
+      position: "relative",
+      display: "flex",
+      overflow: "hidden",
+      width: ({ rating }) => `${(rating / 5) * 100}%`,
     },
   },
 }));

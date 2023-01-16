@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Card,
   CardActions,
@@ -7,6 +8,9 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
+import StarIcon from "@mui/icons-material/Star";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+
 import useStyles from "./useStyles";
 
 const calculateTime = (minutes) => {
@@ -23,7 +27,7 @@ const calculateTime = (minutes) => {
 };
 
 const CourseItem = ({ item }) => {
-  const styles = useStyles();
+  const styles = useStyles({ rating: item?.rating });
 
   const { hours, minutes } = calculateTime(item?.time);
 
@@ -42,7 +46,9 @@ const CourseItem = ({ item }) => {
       <CardContent>
         <Typography>{item.title}</Typography>
 
-        <Grid container alignItems="center" justifyContent="space-between">
+        <Grid container alignItems="center">
+          <AccessTimeIcon />
+
           <Typography>
             {hours > 0 ? `${hours} : ` : null}
             {minutes}
@@ -52,14 +58,20 @@ const CourseItem = ({ item }) => {
         <Grid
           container
           alignItems="center"
-          justifyContents="space-between"
+          justifyContent="space-between"
           className={styles.courseInfoBackground}
         >
           <Typography>
             {item.price || "Free"} {item.price ? "$" : null}
           </Typography>
 
-          <Typography>{item.ratings}</Typography>
+          <Box>
+            <Grid>
+              {[...new Array(5)].map((item, index) => (
+                <StarIcon key={index} />
+              ))}
+            </Grid>
+          </Box>
         </Grid>
       </CardContent>
     </Card>
