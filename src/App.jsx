@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import { Box } from "@mui/material";
 
@@ -6,18 +6,24 @@ import routes from "./configs/routes";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const location = useLocation();
+  const [path, setPath] = useState("Courses App");
 
   useEffect(() => {
     document.title = location.pathname.split("/")[1] || "Courses App";
+    setPath(
+      location.pathname.split("/")[1]
+        ? location.pathname.split("/")
+        : "Courses App"
+    );
   }, [location]);
 
   return (
     <Box className="App">
-      <Header />
+      <Header path={path} />
 
       <Box className="pageContent">
         <Routes>

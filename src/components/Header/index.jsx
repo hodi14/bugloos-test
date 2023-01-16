@@ -1,13 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import { Box, Button } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import EmailIcon from "@mui/icons-material/Email";
+import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 
 import useStyles from "./useStyles";
 
-const Header = () => {
+const Header = ({ path }) => {
   const styles = useStyles();
+
+  const isLoggedIn = localStorage.getItem("user");
+  const navigate = useNavigate();
+
+  const logUserHandler = () => {
+    if (isLoggedIn) {
+      localStorage.removeItem("user");
+      window.location.reload();
+    } else {
+      navigate("/login", { replace: true });
+    }
+  };
 
   return (
     <Box className={styles.header}>
@@ -23,12 +36,24 @@ const Header = () => {
       </Box>
 
       <Box className={styles.navbar}>
-        <Link to="/">Courses</Link>
+        <Link to="/">HOME</Link>
 
-        <Button variant="contained" color="secondary">
-          <Link to="/login">login</Link>
+        <Button variant="contained" color="secondary" onClick={logUserHandler}>
+          {isLoggedIn ? "Logout" : "login"}
         </Button>
       </Box>
+
+      <Grid container className={styles.headerPath}>
+        {typeof path === "string" ? (
+          <Typography>{path}</Typography>
+        ) : (
+          path.map((item, index) => (
+            <Typography key={index}>
+              {index > 1 ? <ArrowCircleRightIcon /> : null} {item}{" "}
+            </Typography>
+          ))
+        )}
+      </Grid>
     </Box>
   );
 };

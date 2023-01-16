@@ -58,8 +58,34 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.secondary.main,
     },
 
-    "& .MuiButton-root a": {
+    "& .MuiButton-root ": {
       color: "#fff",
+    },
+  },
+
+  headerPath: {
+    margin: "1rem auto",
+    maxWidth: "768px",
+    width: "100%",
+
+    "& .MuiTypography-root": {
+      display: "flex",
+      alignItems: "center",
+      color: theme.palette.secondary.main,
+      fontSize: "2rem",
+
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "1.5rem",
+      },
+
+      "& .MuiSvgIcon-root": {
+        fontSize: "2rem",
+        margin: "0 0.25rem",
+
+        [theme.breakpoints.down("sm")]: {
+          fontSize: "1.5rem",
+        },
+      },
     },
   },
 }));
