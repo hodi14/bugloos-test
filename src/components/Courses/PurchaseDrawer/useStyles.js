@@ -11,16 +11,19 @@ const useStyles = makeStyles((theme) => ({
   },
 
   purchaseDrawerContent: {
-    maxWidth: "768px",
+    maxWidth: "576px",
     margin: "auto",
     textAlign: "center",
+    width: "100%",
 
     "& .MuiTypography-root": {
-      display: "flex",
-      alignItems: "center",
       color: theme.palette.secondary.main,
       fontWeight: "bold",
       marginBottom: "1rem",
+    },
+
+    "& img": {
+      maxHeight: "min(20rem, 40vh)",
     },
   },
 }));

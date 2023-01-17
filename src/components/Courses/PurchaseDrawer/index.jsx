@@ -1,5 +1,7 @@
 import { Box, Button, Drawer, Grid, Typography } from "@mui/material";
-import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
+
+import purchaseBackground from "../../../assets/images/purchaseBackground.svg";
+import errorBackground from "../../../assets/images/errorBackground.svg";
 
 import useStyles from "./useStyles";
 
@@ -31,6 +33,8 @@ ${selectedCourse?.price} dollars will be added to your credit.`
 courses!`}
             </Typography>
 
+            <img src={purchaseBackground} alt="PURCHASE" />
+
             <Grid container spacing={1}>
               <Grid item xs={6}>
                 <Button
@@ -59,10 +63,13 @@ courses!`}
             </Grid>
           </Box>
         ) : (
-          <Typography>
-            You need to log in first to be abale to purchase our courses!
-            <SentimentVeryDissatisfiedIcon />
-          </Typography>
+          <>
+            <Typography>
+              You need to log in first to be abale to purchase our courses!
+            </Typography>
+
+            <img src={errorBackground} alt="NOT LOGGED IN" />
+          </>
         )}
       </Box>
     </Drawer>
