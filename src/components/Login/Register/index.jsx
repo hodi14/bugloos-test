@@ -82,7 +82,7 @@ const RegisterForm = () => {
       <TextField
         error={!!errors["firstName"]}
         helperText={errors["firstName"] ? errors["firstName"].message : ""}
-        label="First Name"
+        label="First Name *"
         variant="standard"
         {...register("firstName")}
       />
@@ -90,7 +90,7 @@ const RegisterForm = () => {
       <TextField
         error={!!errors["LastName"]}
         helperText={errors["lastName"] ? errors["lastName"].message : ""}
-        label="Last Name"
+        label="Last Name *"
         variant="standard"
         {...register("lastName")}
       />
@@ -98,7 +98,7 @@ const RegisterForm = () => {
       <TextField
         error={!!errors["email"]}
         helperText={errors["email"] ? errors["email"].message : ""}
-        label="Email"
+        label="Email *"
         type="email"
         variant="standard"
         {...register("email")}
@@ -114,7 +114,7 @@ const RegisterForm = () => {
       <TextField
         error={!!errors["password"]}
         helperText={errors["password"] ? errors["password"].message : ""}
-        lebl="Password"
+        label="Password *"
         type="password"
         variant="standard"
         {...register("password")}
