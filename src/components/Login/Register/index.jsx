@@ -1,9 +1,10 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import { Box, Button, TextField, Typography } from "@mui/material";
+
 import findUser from "../../../utils/findUser";
 
 const schema = yup
@@ -37,12 +38,8 @@ const RegisterForm = () => {
     resolver: yupResolver(schema),
   });
 
+  const dateInput = document.querySelector("#dateInput");
   const [birthdateInputType, setBirthdateInputType] = useState("text");
-  const inputRef = useRef(null);
-  document.onclick = () => {
-    if (document.activeElement !== inputRef.current)
-      setBirthdateInputType("text");
-  };
 
   const [error, setError] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
@@ -79,13 +76,15 @@ const RegisterForm = () => {
     return () => subscription.unsubscribe();
   }, [watch, handleFormChange]);
 
+  useEffect(() => {
+    document.onclick = (e) => {
+      if (!dateInput.contains(e.target)) setBirthdateInputType("text");
+      else setBirthdateInputType("date");
+    };
+  }, [dateInput]);
+
   return (
-    <Box
-      component="form"
-      noValidate
-      autoComplete="off"
-      onSubmit={handleSubmit(onSubmit)}
-    >
+    <Box component="form" autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
       <TextField
         error={!!errors["firstName"]}
         helperText={errors["firstName"] ? errors["firstName"].message : ""}
@@ -112,11 +111,11 @@ const RegisterForm = () => {
       />
 
       <TextField
+        id="dateInput"
         label="Birth Date"
         placeholder="MM/DD/YYYY"
         type={birthdateInputType}
         variant="standard"
-        ref={inputRef}
         onFocus={() => setBirthdateInputType("date")}
         {...register("birthdate")}
       />

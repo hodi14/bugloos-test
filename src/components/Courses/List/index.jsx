@@ -27,6 +27,8 @@ const CoursesList = ({ sort = true, filter = true }) => {
   const [sortBy, setSortBy] = useState(null);
   const [filterBy, setFilterBy] = useState([]);
 
+  const isLoggedIn = localStorage.getItem("currentUser");
+
   const [currentCourses, setCurrentCourses] = useState(coursesData);
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [purchaseDrawerOpen, setPurchaseDrawerOpen] = useState(false);
@@ -102,11 +104,13 @@ const CoursesList = ({ sort = true, filter = true }) => {
 
           {filter && (
             <Grid item xs={12} sm={6}>
-              <FormControlLabel
-                label="Owned by You"
-                control={<Checkbox checked={filterBy.includes("owned")} />}
-                onChange={() => onFilterChange("owned")}
-              />
+              {isLoggedIn && (
+                <FormControlLabel
+                  label="Owned by You"
+                  control={<Checkbox checked={filterBy.includes("owned")} />}
+                  onChange={() => onFilterChange("owned")}
+                />
+              )}
 
               <FormControlLabel
                 label="Free Courses"
