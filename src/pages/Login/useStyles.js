@@ -4,7 +4,7 @@ const useStyles = makeStyles((theme) => ({
   loginCard: {
     "&.MuiCard-root": {
       display: "flex",
-      borderRadius: "1rem",
+      borderRadius: "0.5rem",
       backgroundColor: theme.palette.primary.light,
       boxShadow: "none",
       minHeight: "26rem",

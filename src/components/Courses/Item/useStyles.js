@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
     "&.MuiCard-root": {
       display: "flex",
       flexDirection: "column",
-      borderRadius: "1rem",
+      borderRadius: "0.5rem",
       backgroundColor: theme.palette.primary.light,
       boxShadow: "none",
       height: "100%",
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
     "& .MuiCardMedia-root": {
       backgroundColor: "#eee",
-      borderRadius: "1rem",
+      borderRadius: "0.5rem",
       height: "calc(50vw - 4rem)",
       maxHeight: "14rem",
 
@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   courseInfoBackground: {
-    borderRadius: "1rem",
+    borderRadius: "0.5rem",
     backgroundColor: theme.palette.secondary.main,
     margin: "auto 0 0",
     padding: "1rem 0.5rem !important",

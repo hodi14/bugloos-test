@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     backgroundColor: theme.palette.primary.light,
     boxShadow: "0 0 8px 0px #cad2c5",
-    borderRadius: "1rem",
+    borderRadius: "0.5rem",
     margin: "0.5rem auto",
     padding: "0.5rem",
     maxWidth: "768px",

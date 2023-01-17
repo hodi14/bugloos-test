@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     "& .MuiInputBase-root fieldset": {
-      borderRadius: "1rem",
+      borderRadius: "0.5rem",
       border: `2px solid ${theme.palette.primary.main}`,
     },
   },

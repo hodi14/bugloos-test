@@ -49,7 +49,7 @@ const themeConfig = createTheme({
     MuiButton: {
       styleOverrides: {
         contained: {
-          borderRadius: "1rem",
+          borderRadius: "0.5rem",
           color: "white",
           boxShadow: "none !important",
           fontSize: "0.75rem  ",
@@ -58,7 +58,7 @@ const themeConfig = createTheme({
         },
         secondary: {
           background: "#fff",
-          borderRadius: "1rem",
+          borderRadius: "0.5rem",
           boxShadow: "none !important",
           color: "#f80",
           height: "2.5rem",
@@ -66,7 +66,7 @@ const themeConfig = createTheme({
         outlined: {
           color: "#354F52",
           border: `1px solid #354F52`,
-          borderRadius: "1rem",
+          borderRadius: "0.5rem",
           fontSize: "0.75rem  ",
           fontWeight: "600",
           height: "2.5rem",
