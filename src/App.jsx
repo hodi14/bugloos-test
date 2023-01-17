@@ -17,6 +17,7 @@ function App() {
   const location = useLocation();
   const [path, setPath] = useState("Courses App");
 
+  // here we find the path of the app using the location hook and the pass the splitted array to header for breadcrub section
   useEffect(() => {
     document.title = location.pathname.split("/")[1] || "Courses App";
     setPath(
