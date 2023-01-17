@@ -12,7 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import coursesData from "../../../Data/courses";
+import coursesData from "../../../data/courses";
 import CourseItem from "../Item";
 import CoursePurchaseDrawer from "../PurchaseDrawer";
 import noDataBackground from "../../../assets/images/noDataBackground.svg";

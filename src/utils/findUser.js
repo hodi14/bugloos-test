@@ -1,4 +1,4 @@
-import usersData from "../Data/users.json";
+import usersData from "../data/users.json";
 
 // this util function allows us to search for a user via their email and password and return if they have wrong password, don't exist or the information is correct.
 
