@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
 import { Box } from "@mui/material";
 
@@ -29,7 +29,17 @@ function App() {
         <Routes>
           {routes.map((item) => {
             return (
-              <Route path={item.path} element={item.element} key={item.path} />
+              <Route
+                path={item.path}
+                element={
+                  item.redirect ? (
+                    <Navigate replace to={item.redirect} />
+                  ) : (
+                    item.element
+                  )
+                }
+                key={item.path}
+              />
             );
           })}
         </Routes>
