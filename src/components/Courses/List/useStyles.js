@@ -24,10 +24,15 @@ const useStyles = makeStyles((theme) => ({
   },
 
   noData: {
-    "&.MuiTypography-root": {
+    margin: "1rem auto",
+
+    "& img": {
+      maxWidth: "20rem",
+    },
+
+    "& .MuiTypography-root": {
       color: theme.palette.primary.main,
       fontSize: "2rem",
-      margin: "1rem auto",
     },
   },
 }));

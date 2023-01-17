@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import {
+  Box,
   Checkbox,
   FormControl,
   FormControlLabel,
@@ -14,6 +15,7 @@ import {
 import coursesData from "../../../Data/courses";
 import CourseItem from "../Item";
 import CoursePurchaseDrawer from "../PurchaseDrawer";
+import noDataBackground from "../../../assets/images/noDataBackground.svg";
 
 import useStyles from "./useStyles";
 
@@ -135,9 +137,10 @@ const CoursesList = ({ sort = true, filter = true }) => {
             </Grid>
           ))
         ) : (
-          <Typography className={styles.noData}>
-            No courses were found :(
-          </Typography>
+          <Box className={styles.noData}>
+            <img src={noDataBackground} alt="NO DATA" />
+            <Typography>No courses were found!</Typography>
+          </Box>
         )}
       </Grid>
 
