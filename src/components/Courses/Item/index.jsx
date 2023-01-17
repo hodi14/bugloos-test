@@ -13,7 +13,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
 import useStyles from "./useStyles";
 
-const calculateTime = (minutes) => {
+const calculateDuration = (minutes) => {
   return {
     hours: Math.floor(minutes / 60).toLocaleString("en-US", {
       minimumIntegerDigits: 2,
@@ -29,7 +29,7 @@ const calculateTime = (minutes) => {
 const CourseItem = ({ item, onClick, owned }) => {
   const styles = useStyles({ rating: item?.rating });
 
-  const { hours, minutes } = calculateTime(item?.time);
+  const { hours, minutes } = calculateDuration(item?.duration);
   const isLoggedIn = localStorage.getItem("user");
 
   return (

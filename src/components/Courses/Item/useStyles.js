@@ -3,9 +3,12 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles((theme) => ({
   courseItem: {
     "&.MuiCard-root": {
+      display: "flex",
+      flexDirection: "column",
       borderRadius: "1rem",
       backgroundColor: theme.palette.primary.light,
       boxShadow: "none",
+      height: "100%",
       padding: "0.5rem",
       transition: "0.4s",
 
@@ -31,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
     },
 
     "& .MuiCardContent-root": {
+      display: "flex",
+      flexDirection: "column",
+      flexGrow: 1,
       padding: "0 0 0.5rem !important",
 
       "& > .MuiGrid-root": {
@@ -46,6 +52,7 @@ const useStyles = makeStyles((theme) => ({
   courseInfoBackground: {
     borderRadius: "1rem",
     backgroundColor: theme.palette.secondary.main,
+    margin: "auto 0 0",
     padding: "1rem 0.5rem !important",
 
     "& *": {

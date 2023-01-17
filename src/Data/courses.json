@@ -3,7 +3,7 @@
     "id": "101",
     "title": "front-end programming(HTML/CSS)",
     "imgUrl": "https://picsum.photos/id/0/400/400",
-    "time": 120,
+    "duration": 120,
     "teacher": "Mr. Johnson",
     "rating": "4.75",
     "price": 10
@@ -12,7 +12,7 @@
     "id": "102",
     "title": "back-end development with python",
     "imgUrl": "https://picsum.photos/id/7/400/400",
-    "time": 760,
+    "duration": 760,
     "teacher": "Mrs. Pierce",
     "rating": "4.5",
     "price": 5.99
@@ -21,7 +21,7 @@
     "id": "103",
     "title": "data structures and algorithms using c++",
     "imgUrl": "https://picsum.photos/id/2/400/400",
-    "time": 276,
+    "duration": 276,
     "teacher": "Ms. Robinson",
     "rating": "4",
     "price": 20
@@ -30,7 +30,7 @@
     "id": "104",
     "title": "basic c++ programming",
     "imgUrl": "https://picsum.photos/id/9/400/400",
-    "time": 623,
+    "duration": 623,
     "teacher": "Mr. Connors",
     "rating": "3.5",
     "price": 0
