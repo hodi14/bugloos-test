@@ -4,7 +4,7 @@
     "firstName": "Alex",
     "lastName": "Jones",
     "email": "alex-jones@gmail.com",
-    "birthdate": "23-07-1990",
+    "birthdate": "3/23/1990",
     "password": "PassWord@78"
   },
   {
@@ -12,7 +12,7 @@
     "firstName": "Meana",
     "lastName": "Sunderland",
     "email": "sunderland.m@gmail.com",
-    "birthdate": "02-10-1997",
+    "birthdate": "02/10/1997",
     "password": "12secuR!ty34"
   },
   {
@@ -20,7 +20,7 @@
     "firstName": "John",
     "lastName": "Smith",
     "email": "smith-work@gmail.com",
-    "birthdate": "12-03-2002",
+    "birthdate": "12/03/2002",
     "password": "sm!TH-2002"
   }
 ]
