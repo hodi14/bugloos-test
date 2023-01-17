@@ -31,6 +31,14 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiCardActions-root": {
       justifyContent: "space-between",
       padding: "0.5rem 0",
+
+      "& .MuiTypography-root": {
+        display: "flex",
+        alignItems: "center",
+        color: theme.palette.secondary.main,
+        fontWeight: "bold",
+        lineHeight: "2rem",
+      },
     },
 
     "& .MuiCardContent-root": {

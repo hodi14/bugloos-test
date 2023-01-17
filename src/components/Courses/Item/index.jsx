@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import PersonPinIcon from "@mui/icons-material/PersonPin";
 
 import useStyles from "./useStyles";
 
@@ -30,14 +31,16 @@ const CourseItem = ({ item, onClick, owned }) => {
   const styles = useStyles({ rating: item?.rating });
 
   const { hours, minutes } = calculateDuration(item?.duration);
-  const isLoggedIn = localStorage.getItem("user");
 
   return (
     <Card className={styles.courseItem}>
       <CardMedia component="img" image={item.imgUrl} alt={item.title} />
 
       <CardActions>
-        <Typography>{item.teacher}</Typography>
+        <Typography>
+          <PersonPinIcon />
+          {item.teacher}
+        </Typography>
 
         {owned ? (
           <Typography> Owned </Typography>
