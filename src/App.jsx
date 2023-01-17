@@ -9,6 +9,10 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
 
+// App saves the data it needs inside localStorage. The current user's data, the courses that the user has purchased and all the users the app has.
+// Data needed is read from data folder which contains mock jsons for users and courses
+// user needs to log in in order to be able to purchase any of the courses
+
 function App() {
   const location = useLocation();
   const [path, setPath] = useState("Courses App");

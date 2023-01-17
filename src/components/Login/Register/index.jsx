@@ -120,6 +120,8 @@ const RegisterForm = () => {
         {...register("password")}
       />
 
+      {error ? <Typography color="red"> {error} </Typography> : null}
+
       <Button
         fullWidth
         variant="contained"
@@ -128,8 +130,6 @@ const RegisterForm = () => {
       >
         Register
       </Button>
-
-      {error ? <Typography color="darkred"> {error} </Typography> : null}
     </Box>
   );
 };

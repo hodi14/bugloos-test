@@ -8,6 +8,8 @@ import background from "../../assets/images/loginBackground.svg";
 
 import useStyles from "./useStyles";
 
+// login validations work with react-hook-form. users can register and login. registered users will be added to the localStorage item storing all users so that they can login later.
+
 const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
 

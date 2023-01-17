@@ -14,6 +14,8 @@ import PersonPinIcon from "@mui/icons-material/PersonPin";
 
 import useStyles from "./useStyles";
 
+// each course has some attributes which woill be rendered here and their duration will be converted into hours and minutes using calculateDuration function
+
 const calculateDuration = (minutes) => {
   return {
     hours: Math.floor(minutes / 60).toLocaleString("en-US", {

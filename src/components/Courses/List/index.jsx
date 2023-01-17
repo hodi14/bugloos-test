@@ -17,6 +17,8 @@ import CoursePurchaseDrawer from "../PurchaseDrawer";
 
 import useStyles from "./useStyles";
 
+// here the user can see all the courses stored in courses.json file. they can also purchase a course which will add such item's id to the localStorage item containg an array of course ids that the user owns. there is also a filter and sort option which can be turned on/off using the props
+
 const CoursesList = ({ sort = true, filter = true }) => {
   const styles = useStyles();
 
