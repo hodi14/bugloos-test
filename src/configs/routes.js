@@ -1,7 +1,7 @@
 import HomePage from "../pages/Home";
 import LoginPage from "../pages/Login";
 
-const isLoggedIn = localStorage.getItem("user");
+const isLoggedIn = localStorage.getItem("currentUser");
 
 const routes = [
   { path: "/", element: <HomePage /> },

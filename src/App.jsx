@@ -3,6 +3,7 @@ import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { Box } from "@mui/material";
 
 import routes from "./configs/routes";
+import users from "./Data/users.json";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -20,6 +21,11 @@ function App() {
         : "Courses App"
     );
   }, [location]);
+
+  useEffect(() => {
+    if (!localStorage.getItem("users"))
+      localStorage.setItem("users", JSON.stringify(users));
+  }, []);
 
   return (
     <Box className="App">

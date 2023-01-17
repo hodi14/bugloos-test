@@ -10,12 +10,12 @@ import useStyles from "./useStyles";
 const Header = ({ path }) => {
   const styles = useStyles();
 
-  const isLoggedIn = localStorage.getItem("user");
+  const isLoggedIn = localStorage.getItem("currentUser");
   const navigate = useNavigate();
 
   const logUserHandler = () => {
     if (isLoggedIn) {
-      localStorage.removeItem("user");
+      localStorage.removeItem("currentUser");
       window.location.reload();
     } else {
       navigate("/login", { replace: true });

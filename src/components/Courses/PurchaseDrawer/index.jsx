@@ -13,7 +13,7 @@ const CoursePurchaseDrawer = ({
 }) => {
   const styles = useStyles();
 
-  const isLoggedIn = localStorage.getItem("user");
+  const isLoggedIn = localStorage.getItem("currentUser");
 
   return (
     <Drawer

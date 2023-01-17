@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Controller, useForm } from "react-hook-form";
+import { useCallback, useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
@@ -24,6 +24,7 @@ const RegisterForm = () => {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors, isSubmitSuccessful },
   } = useForm({
     defaultValues: {
@@ -37,20 +38,39 @@ const RegisterForm = () => {
   });
 
   const [error, setError] = useState(null);
+  const [userInfo, setUserInfo] = useState(null);
+  const handleFormChange = useCallback(
+    (value, name) => {
+      setUserInfo({ ...userInfo, [name]: value[name] });
+    },
+    [userInfo]
+  );
 
   const onSubmit = (data) => {
     const userResult = findUser(data);
 
     if (userResult) setError("This email is already taken");
+    else setError(null);
   };
 
   useEffect(() => {
-    if (isSubmitSuccessful) {
+    if (isSubmitSuccessful && !error) {
+      localStorage.setItem("currentUser", JSON.stringify(userInfo));
+      localStorage.setItem(
+        "users",
+        JSON.stringify([...JSON.parse(localStorage.getItem("users")), userInfo])
+      );
       reset();
+      window.location = "/";
     }
-  }, [reset, isSubmitSuccessful]);
+  }, [reset, isSubmitSuccessful, userInfo, error]);
 
-  console.log("erorrs are ", errors);
+  useEffect(() => {
+    const subscription = watch((value, { name, type }) => {
+      handleFormChange(value, name);
+    });
+    return () => subscription.unsubscribe();
+  }, [watch, handleFormChange]);
 
   return (
     <Box
@@ -62,15 +82,15 @@ const RegisterForm = () => {
       <TextField
         error={!!errors["firstName"]}
         helperText={errors["firstName"] ? errors["firstName"].message : ""}
-        label="first name"
+        label="First Name"
         variant="standard"
         {...register("firstName")}
       />
 
       <TextField
-        error={!!errors["lastName"]}
+        error={!!errors["LastName"]}
         helperText={errors["lastName"] ? errors["lastName"].message : ""}
-        label="last name"
+        label="Last Name"
         variant="standard"
         {...register("lastName")}
       />
@@ -78,14 +98,14 @@ const RegisterForm = () => {
       <TextField
         error={!!errors["email"]}
         helperText={errors["email"] ? errors["email"].message : ""}
-        label="email"
+        label="Email"
         type="email"
         variant="standard"
         {...register("email")}
       />
 
       <TextField
-        label="birth date"
+        label="Birth Date"
         type="date"
         variant="standard"
         {...register("birthdate")}
@@ -94,7 +114,7 @@ const RegisterForm = () => {
       <TextField
         error={!!errors["password"]}
         helperText={errors["password"] ? errors["password"].message : ""}
-        lebl="password"
+        lebl="Password"
         type="password"
         variant="standard"
         {...register("password")}

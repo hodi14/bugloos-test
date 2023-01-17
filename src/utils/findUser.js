@@ -1,7 +1,8 @@
-import users from "../Data/users.json";
+import usersData from "../Data/users.json";
 
 const findUser = (inputUser) => {
-  const foundUser = users.find((user) => user.email === inputUser.email);
+  const users = JSON.parse(localStorage.getItem("users")) || usersData;
+  const foundUser = users?.find((user) => user.email === inputUser.email);
 
   if (foundUser) {
     if (foundUser.password === inputUser.password) return foundUser;

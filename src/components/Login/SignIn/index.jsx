@@ -1,16 +1,34 @@
 import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
-import { Button, TextField, Typography } from "@mui/material";
+import { Button, TextField, Box } from "@mui/material";
 
 import findUser from "../../../utils/findUser";
 
+const schema = yup
+  .object({
+    email: yup.string().email("Email is invalid").required(),
+    password: yup
+      .string()
+      .min(8, "Password must be more than 8 characters")
+      .max(32, "Password must be less than 32 characters")
+      .required(),
+  })
+  .required();
+
 const SignInForm = () => {
-  const { control, handleSubmit } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     defaultValues: {
       email: "",
       password: "",
     },
+    resolver: yupResolver(schema),
   });
 
   const [error, setError] = useState(null);
@@ -18,35 +36,49 @@ const SignInForm = () => {
   const onSubmit = (data) => {
     const userResult = findUser(data);
 
-    if (userResult === "password") setError("Wrong Password!");
+    if (userResult === "password") setError("password");
     else if (userResult) {
-      localStorage.setItem("user", JSON.stringify(userResult));
+      localStorage.setItem("currentUser", JSON.stringify(userResult));
       window.location = "/";
-    } else setError("User does not exist!");
+    } else setError("email");
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Controller
-        name="email"
-        control={control}
-        render={({ field }) => (
-          <TextField label="email" type="email" variant="standard" {...field} />
-        )}
+    <Box
+      component="form"
+      noValidate
+      autoComplete="off"
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <TextField
+        error={error === "email" || !!errors["email"]}
+        helperText={
+          error === "email"
+            ? "User does not exist!"
+            : errors["email"]
+            ? errors["email"].message
+            : ""
+        }
+        label="Email"
+        placeholder="Email"
+        variant="standard"
+        {...register("email")}
       />
 
-      <Controller
-        name="password"
-        control={control}
-        render={({ field }) => (
-          <TextField
-            label="password"
-            placeholder="password"
-            type="password"
-            variant="standard"
-            {...field}
-          />
-        )}
+      <TextField
+        error={error === "password" || !!errors["password"]}
+        helperText={
+          error === "password"
+            ? "Wrong password!"
+            : errors["password"]
+            ? errors["password"].message
+            : ""
+        }
+        label="Password"
+        placeholder="Password"
+        type="password"
+        variant="standard"
+        {...register("password")}
       />
 
       <Button
@@ -57,9 +89,7 @@ const SignInForm = () => {
       >
         Sign In
       </Button>
-
-      {error ? <Typography color="darkred"> {error} </Typography> : null}
-    </form>
+    </Box>
   );
 };
 

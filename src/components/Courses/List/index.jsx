@@ -79,9 +79,7 @@ const CoursesList = ({ sort = true, filter = true }) => {
           {sort && (
             <Grid item xs={12} sm={6}>
               <FormControl fullWidth className={styles.sortSelect}>
-                <InputLabel variant="contained" id="sortSelect">
-                  Sort By
-                </InputLabel>
+                <InputLabel id="sortSelect">Sort By</InputLabel>
                 <Select
                   labelId="sortSelectLabel"
                   id="sortSelect"
