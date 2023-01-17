@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -36,6 +36,13 @@ const RegisterForm = () => {
     },
     resolver: yupResolver(schema),
   });
+
+  const [birthdateInputType, setBirthdateInputType] = useState("text");
+  const inputRef = useRef(null);
+  document.onclick = () => {
+    if (document.activeElement !== inputRef.current)
+      setBirthdateInputType("text");
+  };
 
   const [error, setError] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
@@ -106,8 +113,11 @@ const RegisterForm = () => {
 
       <TextField
         label="Birth Date"
-        type="date"
+        placeholder="MM/DD/YYYY"
+        type={birthdateInputType}
         variant="standard"
+        ref={inputRef}
+        onFocus={() => setBirthdateInputType("date")}
         {...register("birthdate")}
       />
 
